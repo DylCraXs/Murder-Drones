@@ -1,0 +1,220 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 0;
+  background-image: url(blck.jpg);
+  position: relative;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  color: #fff;
+  padding: 20px 0;
+  overflow: hidden; /* Para limpiar el float de la imagen */
+}
+
+.logo1 img {
+  max-width: 70px; /* Tamaño máximo para la imagen 1 */
+  height: auto;
+  display: flex;
+}
+
+.logo2 img {
+  width: 150px; /* Ajusta el tamaño del segundo logo según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-left: 190px;
+}
+
+nav {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.logos {
+  display: flex; /* Para que los logos estén en línea */
+}
+
+.logo2 img {
+  width: 350px; /* Tamaño del segundo logo */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+
+h1 {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-image: url(md.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.959);
+  padding: 185px;
+  margin: 0%;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  
+}
+
+.boton-descarga {
+  position: absolute; 
+  bottom: 50px; 
+  left: 50%; 
+  padding: 10px 20px;
+  margin-top: 20px;
+  transform: translateX(-50%); 
+  padding: 10px 20px; 
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: rgba(255, 230, 86, 0.829); 
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 5px;
+  
+}
+
+.boton-descarga:hover {
+  background-color: rgba(199, 192, 101, 0.8); /* Button background color on hover */
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+h1 span {
+  background-color: rgb(255, 255, 255) ; 
+  background-size: cover; 
+  color: transparent; 
+  -webkit-background-clip: text; 
+  background-clip: text;
+}
+a{
+  margin-right: 30px !important;
+}
+
+.image-container {
+  text-align: center; /* Center the image */
+  margin-top: 20px; /* Add space between the paragraph and the image */
+  flex: 1;
+}
+
+.image-container img {
+  max-width: 300%; /* Set the image size to medium (adjust percentage as needed) */
+  height: auto; /* Maintain image aspect ratio */
+  display: block; /* Ensure image is centered properly */
+  margin: 0 auto; /* Center the image horizontally */
+  border-radius: 50%; /* Make the image round */
+  max-width: 300px; /* Set the maximum width for the image */
+  margin-bottom: 20px;
+}
+
+.content {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-container {
+  text-align: center;
+  margin: 20px;
+  flex: 1 1 30%; /* Each image container takes up 30% of the width initially */
+}
+
+.round-image {
+  border-radius: 50%;
+  max-width: 200px;
+  height: auto;
+}
+
+p {
+  font-size: 16px;
+  text-align: left;
+  max-width: 300px; /* Adjust the max-width as needed */
+}
+.footer {
+  background-color: #bd679c;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0; /* Ajusta el padding según necesites */
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Ajusta si es necesario */
+  z-index: 1000; /* Asegura que el footer esté por encima de otros elementos */
+}
+
+.container {
+  margin-bottom: 120px; /* Ajusta el valor según la altura del footer */
+  /* Agrega espacio para evitar que el contenido quede detrás del footer */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #bd679c;
+}
+
+.footer-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.footer-content ul li:last-child {
+  margin-right: 0;
+}
+
+/* Media query to adjust layout for smaller screens */
+@media only screen and (max-width: 768px) {
+  .image-container {
+    flex: 1 1 100%; /* Each image container takes up 100% of the width on smaller screens */
+  }
+}
+
