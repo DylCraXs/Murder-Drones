@@ -17,20 +17,20 @@ header {
   box-sizing: border-box;
 }
 
-.logos {
-  display: flex;
-  gap: 10px;
-}
-
 .logo img {
   height: 70px;
+}
+
+nav {
+  flex: 1;
+  text-align: center;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
+  display: inline-flex;
   gap: 15px;
 }
 
