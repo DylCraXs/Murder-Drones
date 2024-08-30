@@ -33,7 +33,7 @@
       </div>
       
       <section id="games">
-        <center><h2 style="color: rgb(255, 255, 255);">Nuestros Juegos</h2></center>
+        <center><h2 style="color: rgb(#b560e6);">Nuestros Juegos</h2></center>
         <div class="games-container">
            <div class="game-card"> 
                 <img src="per.jpg_large" alt="Juego 1">
