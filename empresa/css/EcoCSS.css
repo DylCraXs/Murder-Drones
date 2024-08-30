@@ -17,20 +17,20 @@ header {
   box-sizing: border-box;
 }
 
-.logo img {
-  height: 70px;
+.logos {
+  display: flex;
+  gap: 10px;
 }
 
-nav {
-  flex: 1;
-  text-align: center;
+.logo img {
+  height: 70px;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: inline-flex;
+  display: flex;
   gap: 15px;
 }
 
@@ -42,10 +42,11 @@ nav ul li a {
 
 .hero {
   background-image: url('cREAdores\ de\ videjuegos.png');
+  padding: 420px 20px;
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 390px 20px;
+  margin: 20px;
   color: #fff;
 }
 

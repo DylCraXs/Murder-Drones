@@ -9,13 +9,15 @@
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="vdm.png" alt="Logo de V.E.D.M.A.">
+    <div class="logos">
+      <div class="logo">
+        <img src="vdm.png" alt="Logo de V.E.D.M.A.">
+      </div>
     </div>
     <nav>
         <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Personajes</a></li>
             <li><a href="#">Merch</a></li>
             <li><a href="#">Noticias</a></li>
         </ul>
@@ -43,7 +45,7 @@
                 <img src="mrs.jpg" alt="Juego 2">
                 <h3>SERIE</h3>
                 <p>Nos gustaría que aparte de jugar nuestro asombroso juego, también te animes a ver la serie en que nos basamos para hacer el juego!</p>
-                <a href="https://youtu.be/mImFz8mkaHo?si=2b_TnxYkYGJLobbF" class="btn">Ver más</a>
+                <a href="https://www.youtube.com/watch?v=mImFz8mkaHo&list=PLHovnlOusNLiJz3sm0d5i2Evwa2LDLdrg" class="btn">Ver más</a>
             </div>
             <!-- Añadir más juegos según sea necesario -->
         </div>
