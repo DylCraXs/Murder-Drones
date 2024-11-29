@@ -1,0 +1,8 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Alumno/source/repos/murderdrones/Content/centinela.png","C:/Users/Alumno/source/repos/murderdrones/Content/bin/Windows/centinela.xnb","TextureProcessor","Texture2DContent",16360,3604309,0,5419534
+"C:/Users/Alumno/source/repos/murderdrones/Content/fondo_button.png","C:/Users/Alumno/source/repos/murderdrones/Content/bin/Windows/fondo_button.xnb","TextureProcessor","Texture2DContent",1553759,4305345,0,1184116
+"C:/Users/Alumno/source/repos/murderdrones/Content/fondo.png","C:/Users/Alumno/source/repos/murderdrones/Content/bin/Windows/fondo.xnb","TextureProcessor","Texture2DContent",72164,2794333,0,0670922
+"C:/Users/Alumno/source/repos/murderdrones/Content/mario.png","C:/Users/Alumno/source/repos/murderdrones/Content/bin/Windows/mario.xnb","TextureProcessor","Texture2DContent",6822,3015157,0,0666632
+"C:/Users/Alumno/source/repos/murderdrones/Content/metal.png","C:/Users/Alumno/source/repos/murderdrones/Content/bin/Windows/metal.xnb","TextureProcessor","Texture2DContent",9348,5760085,0,1434116
+"C:/Users/Alumno/source/repos/murderdrones/Content/plataforma.png","C:/Users/Alumno/source/repos/murderdrones/Content/bin/Windows/plataforma.xnb","TextureProcessor","Texture2DContent",8302,127285,0,0126384
+"C:/Users/Alumno/source/repos/murderdrones/Content/play_button.png","C:/Users/Alumno/source/repos/murderdrones/Content/bin/Windows/play_button.xnb","TextureProcessor","Texture2DContent",48333,307201,0,0555991
