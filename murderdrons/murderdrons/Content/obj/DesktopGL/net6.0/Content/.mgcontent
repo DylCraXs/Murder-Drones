@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/Calibri.spritefont</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/centinela.png</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/flag.png</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/fondo.png</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/fondo_button.png</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/Font.spritefont</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/mario.png</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/metal.png</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/plataforma.png</File>
+    <File>C:/Users/crist/source/repos/murderdrons/murderdrons/Content/play_button.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
