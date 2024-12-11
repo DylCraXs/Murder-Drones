@@ -31,8 +31,8 @@ namespace murderdrons
         private Vector2 _centinelaPosition;
         private Vector2 _metalPlatformPosition;
 
-        private float _gravity = 0.2f; // Ajustar si el personaje cae muy rápido
-        private Vector2 _UziVelocity = Vector2.Zero; // Inicializar velocidad
+        private float _gravity = 0.2f; // caida del personaje
+        private Vector2 _UziVelocity = Vector2.Zero; // inicializo la velocidad
         private bool _isJumping = false;
 
         private float _UziScale = 0.090f;
@@ -47,21 +47,21 @@ namespace murderdrons
 
         private bool _gameStarted = false;
         private List<Vector2> _centinelaPositions;  // Posiciones de los centinelas
-        private List<bool> _centinelaAlive;          // Si los centinelas están vivos
-        private int _centinelaSpeed = 2;             // Velocidad de los centinelas
-        private int _centinelaHits;                  // Número de hits que el centinela recibe
-        private int _hitsToDefeat = 1;               // Número de saltos para matar a un centinela
+        private List<bool> _centinelaAlive; 
+        private int _centinelaSpeed = 2;  
+        private int _centinelaHits;  
+        private int _hitsToDefeat = 1; // saltos que da uzi para matar al centinela
         private int levelHeight;
-        private Texture2D _flagTexture; // Textura de la bandera
-        private Vector2 _flagPosition; // Posición de la bandera
-        private float _flagScale = 0.2f; // Escala de la bandera
-        private List<float> _centinelaTimers; // Controla cuándo aparece cada centinela
-        private float _spawnDelay = 10f; // Tiempo en segundos entre cada aparición
+        private Texture2D _flagTexture; 
+        private Vector2 _flagPosition; 
+        private float _flagScale = 0.2f; 
+        private List<float> _centinelaTimers; 
+        private float _spawnDelay = 10f; // centinelas aparecen cada 10s
         private int _maxCentinelas = 5;
 
-        private bool _PgameWon = false; // Indicador de que el jugador ganó
-        private bool _gameWon = false;  // Indica si el juego ha terminado con éxito
-        private const int HitsToDefeat = 1; // Número de golpes necesarios para derrotar al centinela
+        private bool _PgameWon = false; 
+        private bool _gameWon = false;  
+        private const int HitsToDefeat = 1; 
 
         public Game1()
         {
@@ -72,17 +72,17 @@ namespace murderdrons
 
         protected override void Initialize()
         {
-            _platformPosition = new Vector2(0, 430); // Posición del piso/plataforma
-            _UziPosition = new Vector2(100, _platformPosition.Y * _UziScale); // Posiciona a Mario sobre la plataforma
+            _platformPosition = new Vector2(0, 430); 
+            _UziPosition = new Vector2(100, _platformPosition.Y * _UziScale); 
             _metalPlatformPosition = new Vector2(600, 200);
 
-            // Inicializar los centinelas
+            // inicializando centinelas
             _centinelaPositions = new List<Vector2>();
             _centinelaAlive = new List<bool>();
 
             _centinelaPositions = new List<Vector2>
             {
-            new Vector2(1380, _platformPosition.Y - 110),  // Centinela inicial en la pantalla
+            new Vector2(1380, _platformPosition.Y - 110),  // primer centinela
             new Vector2(1600, _platformPosition.Y - 110),
             new Vector2(1800, _platformPosition.Y - 110),
             new Vector2(2000, _platformPosition.Y - 110),
@@ -94,7 +94,7 @@ namespace murderdrons
             _centinelaTimers = new List<float>();
             for (int i = 0; i < _maxCentinelas; i++)
             {
-                _centinelaTimers.Add(i * _spawnDelay); // Cada centinela tiene un temporizador escalonado
+                _centinelaTimers.Add(i * _spawnDelay); // temporizador para cada centinela
             }
 
             base.Initialize();
@@ -104,7 +104,6 @@ namespace murderdrons
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // Cargar texturas
             _playButtonTexture = Content.Load<Texture2D>("play_button");
             _fondoButtonTexture = Content.Load<Texture2D>("fondo_button");
             _UziTexture = Content.Load<Texture2D>("mario");
@@ -112,20 +111,19 @@ namespace murderdrons
             _backgroundTexture = Content.Load<Texture2D>("fondo");
             _centinelaTexture = Content.Load<Texture2D>("centinela");
             _metalPlatformTexture = Content.Load<Texture2D>("metal");
-            _flagTexture = Content.Load<Texture2D>("flag"); // Carga la textura de la bandera
+            _flagTexture = Content.Load<Texture2D>("flag"); 
             _font = Content.Load<SpriteFont>("Calibri");
 
 
             _backgroundRepeatCount = (_platformTexture.Width * _platformRepeatCount) / _backgroundTexture.Width + 1;
 
-            // Configurar la posición de la bandera al final del nivel
+            
             float levelWidth = _platformTexture.Width * _platformRepeatCount;
             _flagPosition = new Vector2(
-            _platformPosition.X + (_platformTexture.Width * (_platformRepeatCount - 1)) - _flagTexture.Width * _flagScale, // Coloca la bandera al final del piso
-            _platformPosition.Y - _flagTexture.Height * _flagScale // Asegura que esté en el piso
+            _platformPosition.X + (_platformTexture.Width * (_platformRepeatCount - 1)) - _flagTexture.Width * _flagScale, 
+            _platformPosition.Y - _flagTexture.Height * _flagScale 
 );
 
-            // Centralizar botones
             int screenWidth = _graphics.PreferredBackBufferWidth;
             int screenHeight = _graphics.PreferredBackBufferHeight;
 
@@ -159,7 +157,7 @@ namespace murderdrons
             UpdateGameplay(gameTime, Get_centinelaPositions());
 
             if (_gameWon)
-                return; // Si el juego ya terminó, no actualizamos nada más
+                return; 
 
             if (!_gameStarted)
             {
@@ -191,70 +189,69 @@ namespace murderdrons
 
         private void UpdateGameplay(GameTime gameTime, List<Vector2> _centinelaPositions)
         {
-            // Obtener el estado del teclado
             var keyboardState = Keyboard.GetState();
 
-            // Movimiento del personaje
+            // movimiento de uzi
             if (keyboardState.IsKeyDown(Keys.Right))
                 _UziPosition.X += 3;
             if (keyboardState.IsKeyDown(Keys.Left))
                 _UziPosition.X -= 3;
 
-            // Salto del personaje
+            // salto de uzi
             if (keyboardState.IsKeyDown(Keys.Space) && !_isJumping)
             {
                 _UziVelocity.Y = -15;
                 _isJumping = true;
             }
 
-            // Aplicar gravedad y mover al personaje
-            _UziVelocity.Y += _gravity; // Aumenta la velocidad hacia abajo
-            _UziPosition += _UziVelocity; // Aplica el movimiento vertical
+            // gravedad de uzi y su movimiento
+            _UziVelocity.Y += _gravity; // velocidad d caida
+            _UziPosition += _UziVelocity; // mov vertical
             CheckCollisions();
 
-            // Mover los centinelas
+            // centinela movimiento
             for (int i = 0; i < _centinelaPositions.Count; i++)
             {
-                // Actualizar temporizador del centinela
+                // temporizador de centinelas
                 if (_centinelaTimers[i] > 0)
                 {
                     _centinelaTimers[i] -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    continue; // Si el temporizador no ha llegado a 0, el centinela no se mueve
+                    continue; // temporizador tiene que ser 0 para que se mueva otro centinela
                 }
 
-                // Mover el centinela
+                // movimiento centinela
                 _centinelaPositions[i] = new Vector2(
                     _centinelaPositions[i].X - _centinelaSpeed,
                     _centinelaPositions[i].Y
                 );
 
-                // Si el centinela sale de la pantalla, lo reinicia
+                
                 if (_centinelaPositions[i].X < -_centinelaTexture.Width * _centinelaScale)
                 {
                     _centinelaPositions[i] = new Vector2(
                         _graphics.PreferredBackBufferWidth,
                         _platformPosition.Y - _centinelaTexture.Height * _centinelaScale
                     );
-                    _centinelaTimers[i] = _spawnDelay; // Reinicia su temporizador
+                    _centinelaTimers[i] = _spawnDelay; // reinicia el temporizador
                 }
 
-                // Verificar colisión con el personaje
+                // colisiones con uzi
                 if (_centinelaAlive[i] &&
                     CheckCollision(_UziPosition, _UziTexture, _centinelaPositions[i], _centinelaTexture))
                 {
-                    if (_UziVelocity.Y > 0) // Si el personaje está cayendo
+                    if (_UziVelocity.Y > 0) 
                     {
-                        _centinelaAlive[i] = false; // Centinela eliminado
-                        _UziVelocity.Y = -4; // Rebote
+                        _centinelaAlive[i] = false; // muere centinela
+                        _UziVelocity.Y = -4; // salta una vez q lo mata
                     }
-                    else // Si no está cayendo, termina el juego
+                    else 
                     {
                         RestartGame();
                     }
                 }
             }
 
-            // Verificar si el personaje toca la bandera
+            // colision si uzi toca la bandera
             if (CheckCollision(_UziPosition, _UziTexture, _flagPosition, _flagTexture))
             {
                 _gameWon = true;
@@ -269,13 +266,13 @@ namespace murderdrons
                 _UziPosition.X + _UziTexture.Width * _UziScale >= _platformPosition.X &&
                 _UziPosition.X <= _platformPosition.X + _platformTexture.Width * _platformRepeatCount)
             {
-                _UziVelocity.Y = 0; // Detener la caída
-                _isJumping = false;   // Permitir saltos de nuevo
-                _UziPosition.Y = _platformPosition.Y - _UziTexture.Height * _UziScale; // Ajustar posición sobre la plataforma
+                _UziVelocity.Y = 0; 
+                _isJumping = false; 
+                _UziPosition.Y = _platformPosition.Y - _UziTexture.Height * _UziScale; 
             }
             else
             {
-                _UziVelocity.Y += _gravity; // Continuar cayendo si no hay colisión
+                _UziVelocity.Y += _gravity; 
             }
 
             if (_UziPosition.Y + _UziTexture.Height * _UziScale >= _metalPlatformPosition.Y &&
@@ -283,7 +280,7 @@ namespace murderdrons
                 _UziPosition.X + _UziTexture.Width * _UziScale >= _metalPlatformPosition.X &&
                 _UziPosition.X <= _metalPlatformPosition.X + _metalPlatformTexture.Width * _metalPlatformScale)
             {
-                if (_UziVelocity.Y > 0) // Solo si el personaje está cayendo
+                if (_UziVelocity.Y > 0) 
                 {
                     _UziVelocity.Y = 0;
                     _isJumping = false;
@@ -316,7 +313,7 @@ namespace murderdrons
                 _spriteBatch.Begin(transformMatrix: _cameraTransform);
                 DrawGameplay();
             }
-            _spriteBatch.DrawString(_font, "Matar a los centinelas", new Vector2(10, 10), Color.White); // Esquina superior izquierda
+            _spriteBatch.DrawString(_font, "Matar a los centinelas", new Vector2(10, 10), Color.White); 
             _spriteBatch.End();
 
             base.Draw(gameTime);
@@ -330,13 +327,13 @@ namespace murderdrons
 
         private void DrawGameplay()
         {
-            // Dibujar el fondo
+            // dibujo el fondo
             for (int i = 0; i < _backgroundRepeatCount; i++)
             {
                 _spriteBatch.Draw(_backgroundTexture, new Vector2(i * _backgroundTexture.Width, 0), Color.White);
             }
 
-            // Dibujar las plataformas
+            // dibujo el piso
             for (int i = 0; i < _platformRepeatCount; i++)
             {
                 _spriteBatch.Draw(_platformTexture, new Vector2(_platformPosition.X + i * _platformTexture.Width, _platformPosition.Y), Color.White);
@@ -346,7 +343,7 @@ namespace murderdrons
             _spriteBatch.Draw(_UziTexture, _UziPosition, null, Color.White, 0f, Vector2.Zero, _UziScale, SpriteEffects.None, 0f);
             _spriteBatch.Draw(_centinelaTexture, _centinelaPosition, null, Color.White, 0f, Vector2.Zero, _centinelaScale, SpriteEffects.None, 0f);
 
-            // Dibujar los centinelas solo si están vivos
+            // dibujo los centinelas solo si estan vivos
             for (int i = 0; i < _centinelaPositions.Count; i++)
             {
                 if (_centinelaAlive[i])
@@ -355,19 +352,19 @@ namespace murderdrons
                 }
             }
 
-            // Dibujar al personaje
+            // dibujo a uzi
             _spriteBatch.Draw(_UziTexture, _UziPosition, null, Color.White, 0f, Vector2.Zero, _UziScale, SpriteEffects.None, 0f);
 
-            // Dibujar la bandera
+            // dibujo la bandera
             _spriteBatch.Draw(_flagTexture, _flagPosition, null, Color.White, 0f, Vector2.Zero, _flagScale, SpriteEffects.None, 0f);
 
-            // Mostrar mensaje de victoria si el juego ha terminado
+            // mensaje de victoria
             if (_gameWon)
             {
                 _spriteBatch.End();
                 _spriteBatch.Begin();
                 string victoryMessage = "Ganaste";
-                var font = Content.Load<SpriteFont>("Calibri"); // Necesitas un SpriteFont cargado
+                var font = Content.Load<SpriteFont>("Calibri"); 
                 var messageSize = font.MeasureString(victoryMessage);
                 var screenCenter = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2);
                 _spriteBatch.DrawString(font, victoryMessage, screenCenter - messageSize / 2, Color.Yellow);
@@ -382,16 +379,16 @@ namespace murderdrons
         }
         private void RestartGame()
         {
-            // Reiniciar la posición de Mario
+            // reinicio a uzi y su posicion
             _UziPosition = new Vector2(100, _platformPosition.Y - _UziScale * 100);
 
-            // Reiniciar la posición del centinela
+            // reinicio al centinela y su posicion
             _centinelaPosition.X = 1380;
 
-            // Reiniciar la velocidad de Mario
+            // reinicio a uzi y su velocidad
             _UziVelocity = Vector2.Zero;
 
-            // Resetear el estado de salto
+            // reinicio el salto de uzi
             _isJumping = false;
         }
     }
