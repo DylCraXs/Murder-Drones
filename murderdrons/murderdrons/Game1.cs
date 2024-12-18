@@ -119,10 +119,9 @@ namespace murderdrons
 
             
             float levelWidth = _platformTexture.Width * _platformRepeatCount;
-            _flagPosition = new Vector2(
-            _platformPosition.X + (_platformTexture.Width * (_platformRepeatCount - 1)) - _flagTexture.Width * _flagScale, 
-            _platformPosition.Y - _flagTexture.Height * _flagScale 
-);
+            _flagPosition = new Vector2(_platformPosition.X + (_platformTexture.Width * (_platformRepeatCount - 1)) - _flagTexture.Width * _flagScale + 150, 
+            _platformPosition.Y - _flagTexture.Height * _flagScale);
+
 
             int screenWidth = _graphics.PreferredBackBufferWidth;
             int screenHeight = _graphics.PreferredBackBufferHeight;
@@ -368,6 +367,10 @@ namespace murderdrons
                 var messageSize = font.MeasureString(victoryMessage);
                 var screenCenter = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2);
                 _spriteBatch.DrawString(font, victoryMessage, screenCenter - messageSize / 2, Color.Yellow);
+                for (int i = 0; i < _centinelaAlive.Count; i++)
+                {
+                _centinelaAlive[i] = false; // todos los centinelas como eliminados
+                }
             }
         }
 
